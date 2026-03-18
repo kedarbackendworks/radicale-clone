@@ -29,5 +29,6 @@ temp_config.close()
 os.environ['RADICALE_CONFIG'] = temp_config.name
 
 # Import and run Radicale
-from radicale.__main__ import main
-sys.exit(main())
+from radicale.__main__ import run
+
+run()
