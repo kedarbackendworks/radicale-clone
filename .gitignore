@@ -26,3 +26,7 @@ Gemfile.lock
 pytest-results.xml
 pytestdebug.log
 uv.lock
+
+# local deployment secrets
+.env.prod
+.env.local
