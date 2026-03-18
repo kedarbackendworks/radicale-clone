@@ -2,7 +2,6 @@
 import os
 import sys
 import tempfile
-import shutil
 from pathlib import Path
 
 # Read the original config
@@ -11,12 +10,15 @@ config_content = config_path.read_text()
 
 # Get port from Railway environment, default to 5232
 port = os.getenv("PORT", "5232")
+users_path = str((Path(__file__).parent / "users").resolve())
 
 # Update the hosts line to use the correct port
 updated_config = ""
 for line in config_content.split('\n'):
     if line.strip().startswith('hosts = '):
         updated_config += f"hosts = 0.0.0.0:{port}\n"
+    elif line.strip().startswith('htpasswd_filename = '):
+        updated_config += f"htpasswd_filename = {users_path}\n"
     else:
         updated_config += line + '\n'
 
