@@ -1,1 +1,1 @@
-web: python -m radicale
+web: python start.py
