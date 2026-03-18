@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: radicale-clone
+    env: python
+    plan: free
+    region: oregon
+    branch: master
+    buildCommand: pip install -r requirements.txt
+    startCommand: python start.py
+    autoDeploy: true
